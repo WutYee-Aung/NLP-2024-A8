@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Generator</title>
+    <style>
+        /* Center alignment */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Container styling */
+        .container {
+            width: 80%;
+            max-width: 600px; /* Adjust as needed */
+        }
+
+        /* Form and output styling */
+        form {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>A8 Text Generator</h1>
+        <form action="/generate" method="POST">
+            <label for="prompt">Enter your prompt:</label><br>
+            <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
+            <button type="submit">Generate</button>
+        </form>
+        {% if prompt %}
+            <h2>Prompt:</h2>
+            <p>{{ prompt }}</p>
+        {% endif %}
+        {% if generated_text %}
+            <h2>Generated Text:</h2>
+            <p>{{ generated_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
